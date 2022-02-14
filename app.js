@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
         squares[appleIndex].classList.remove("apple");
         clearInterval(interval);
         score = 0;
-        randomApple();
         direction = 1;
         scoreDisplay.innerHTML = score;
         intervalTime = 1000;
         currentSnake = [2, 1, 0];
         currentSnake.forEach((index) => squares[index].classList.add("snake"));
+        randomApple();
         interval = setInterval(moveOutcomes, intervalTime);
     }
 
