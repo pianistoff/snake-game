@@ -64,9 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         do {
             appleIndex = Math.floor(Math.random() * squares.length);
         } while (
-            currentSnake.includes(
-                appleIndex || squares[appleIndex].classList.contains("snake")
-            )
+            currentSnake.includes(appleIndex) || squares[appleIndex].classList.contains("snake"))
         );
         squares[appleIndex].classList.add("apple");
     }
