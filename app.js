@@ -29,12 +29,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function moveOutcomes() {
+        if (currentSnake[0] + direction === currentSnake[1]) {
+            direction = -direction;
+        } else if (
+            squares[currentSnake[0] + direction].classList.contains("snake")
+        ) {
+            return clearInterval(interval);
+        }
+
         if (
             (currentSnake[0] + width >= width * width && direction === width) ||
             (currentSnake[0] % width === width - 1 && direction === 1) ||
             (currentSnake[0] % width === 0 && direction === -1) ||
-            (currentSnake[0] - width < 0 && direction === -width) ||
-            squares[currentSnake[0] + direction].classList.contains("snake")
+            (currentSnake[0] - width < 0 && direction === -width)
         ) {
             return clearInterval(interval);
         }
@@ -72,24 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function control(e) {
         if (e.keyCode === 39) {
-            if (direction === -1) {
-                return;
-            }
             direction = 1;
         } else if (e.keyCode === 38) {
-            if (direction === width) {
-                return;
-            }
             direction = -width;
         } else if (e.keyCode === 37) {
-            if (direction === 1) {
-                return;
-            }
             direction = -1;
         } else if (e.keyCode === 40) {
-            if (direction === -width) {
-                return;
-            }
             direction = +width;
         }
     }
