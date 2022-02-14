@@ -64,18 +64,32 @@ document.addEventListener("DOMContentLoaded", () => {
         do {
             appleIndex = Math.floor(Math.random() * squares.length);
         } while (
-            currentSnake.includes(appleIndex) || squares[appleIndex].classList.contains("snake"));
+            currentSnake.includes(appleIndex) ||
+            squares[appleIndex].classList.contains("snake")
+        );
         squares[appleIndex].classList.add("apple");
     }
 
     function control(e) {
         if (e.keyCode === 39) {
+            if (direction === -1) {
+                return;
+            }
             direction = 1;
         } else if (e.keyCode === 38) {
+            if (direction === width) {
+                return;
+            }
             direction = -width;
         } else if (e.keyCode === 37) {
+            if (direction === 1) {
+                return;
+            }
             direction = -1;
         } else if (e.keyCode === 40) {
+            if (direction === -width) {
+                return;
+            }
             direction = +width;
         }
     }
