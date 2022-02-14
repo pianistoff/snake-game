@@ -60,13 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function randomApple() {
-        function randomIndex(index) {
-            index = Math.floor(Math.random() * squares.length);
-        }
-        randomIndex(appleIndex);
-        if (squares[appleIndex].classList.contains("snake") || currentSnake.includes(appleIndex)) {
-            randomIndex(appleIndex);
-        }
+        do {
+            appleIndex = Math.floor(Math.random() * squares.length);
+        } while (currentSnake.includes(appleIndex || squares[appleIndex].classList.contains("snake")));
         squares[appleIndex].classList.add("apple");
     }
 
