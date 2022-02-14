@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const startBtn = document.querySelector(".start");
 
     const width = 10;
-    let currentIndex = 0;
     let appleIndex = 0;
     let currentSnake = [2, 1, 0];
     let direction = 1;
@@ -25,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreDisplay.innerHTML = score;
         intervalTime = 1000;
         currentSnake = [2, 1, 0];
-        currentIndex = 0;
         currentSnake.forEach((index) => squares[index].classList.add("snake"));
         interval = setInterval(moveOutcomes, intervalTime);
     }
@@ -45,7 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
         squares[tail].classList.remove("snake");
         currentSnake.unshift(currentSnake[0] + direction);
 
-        if (currentSnake[0] === appleIndex || squares[currentSnake[0]].classList.contains("apple")) {
+        if (
+            currentSnake[0] === appleIndex ||
+            squares[currentSnake[0]].classList.contains("apple")
+        ) {
             squares[currentSnake[0]].classList.remove("apple");
             squares[tail].classList.add("snake");
             currentSnake.push(tail);
@@ -62,13 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
     function randomApple() {
         do {
             appleIndex = Math.floor(Math.random() * squares.length);
-        } while (currentSnake.includes(appleIndex || squares[appleIndex].classList.contains("snake")));
+        } while (
+            currentSnake.includes(
+                appleIndex || squares[appleIndex].classList.contains("snake")
+            )
+        );
         squares[appleIndex].classList.add("apple");
     }
 
     function control(e) {
-        squares[currentIndex].classList.remove("snake");
-
         if (e.keyCode === 39) {
             direction = 1;
         } else if (e.keyCode === 38) {
