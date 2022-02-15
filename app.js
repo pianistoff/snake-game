@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let appleIndex = 0;
     let currentSnake = [2, 1, 0];
     let direction = 1;
+    let currentDirection = 1;
     let score = 0;
     let speed = 0.9;
     let intervalTime = 0;
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(interval);
         score = 0;
         direction = 1;
+        currentDirection = 1;
         scoreDisplay.innerHTML = score;
         intervalTime = 1000;
         currentSnake = [2, 1, 0];
@@ -29,19 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function moveOutcomes() {
-        if (currentSnake[0] + direction === currentSnake[1]) {
-            direction = -direction;
-        } else if (
-            squares[currentSnake[0] + direction].classList.contains("snake")
-        ) {
-            return clearInterval(interval);
-        }
-
         if (
             (currentSnake[0] + width >= width * width && direction === width) ||
             (currentSnake[0] % width === width - 1 && direction === 1) ||
             (currentSnake[0] % width === 0 && direction === -1) ||
-            (currentSnake[0] - width < 0 && direction === -width)
+            (currentSnake[0] - width < 0 && direction === -width) ||
+            squares[currentSnake[0] + direction].classList.contains("snake")
         ) {
             return clearInterval(interval);
         }
@@ -65,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             interval = setInterval(moveOutcomes, intervalTime);
         }
         squares[currentSnake[0]].classList.add("snake");
+        currentDirection = direction;
     }
 
     function randomApple() {
@@ -79,13 +75,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function control(e) {
         if (e.keyCode === 39) {
+            if (currentDirection === -1) {
+                return;
+            }
             direction = 1;
         } else if (e.keyCode === 38) {
+            if (currentDirection === width) {
+                return;
+            }
             direction = -width;
         } else if (e.keyCode === 37) {
+            if (currentDirection === 1) {
+                return;
+            }
             direction = -1;
         } else if (e.keyCode === 40) {
-            direction = +width;
+            if (currentDirection === -width) {
+                return;
+            }
+            direction = width;
         }
     }
 
