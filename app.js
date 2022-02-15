@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const scoreDisplay = document.querySelector("span");
     const startBtn = document.querySelector(".start");
 
-    const width = 10;
+    const width = 20;
     let appleIndex = 0;
     let currentSnake = [2, 1, 0];
     let direction = 1;
