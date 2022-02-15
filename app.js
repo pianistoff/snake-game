@@ -1,5 +1,20 @@
+const squares = document.querySelectorAll(".grid div");
+const grid = document.querySelector('.grid');
+
+grid.style.height = '100%';
+const gridStyles = window.getComputedStyle(grid);
+const gridHeight = gridStyles.getPropertyValue('height');
+grid.style.width = gridHeight;
+const heightPixelless = gridHeight.split('').reverse().slice(2).reverse().join('');
+console.log(heightPixelless);
+console.log(gridHeight);
+
+squares.forEach((square) => {
+    square.style.width = ((heightPixelless - 2) / 20) + "px";
+    square.style.height = ((heightPixelless - 2) / 20) + "px";
+});
+
 document.addEventListener("DOMContentLoaded", () => {
-    const squares = document.querySelectorAll(".grid div");
     const scoreDisplay = document.querySelector("span");
     const startBtn = document.querySelector(".start");
 
