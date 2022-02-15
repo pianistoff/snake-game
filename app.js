@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let direction = 1;
     let currentDirection = 1;
     let score = 0;
-    let speed = 0.9;
+    let speed = 0.95;
     let intervalTime = 0;
     let interval = 0;
 
