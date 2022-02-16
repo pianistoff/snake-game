@@ -1,18 +1,41 @@
 const squares = document.querySelectorAll(".grid div");
 const grid = document.querySelector('.grid');
-
-grid.style.height = '100%';
 const gridStyles = window.getComputedStyle(grid);
-const gridHeight = gridStyles.getPropertyValue('height');
-grid.style.width = gridHeight;
-const heightPixelless = gridHeight.split('').reverse().slice(2).reverse().join('');
-console.log(heightPixelless);
-console.log(gridHeight);
 
-squares.forEach((square) => {
-    square.style.width = ((heightPixelless - 2) / 20) + "px";
-    square.style.height = ((heightPixelless - 2) / 20) + "px";
-});
+function responsivePortrait() {
+    grid.style.width = '100%';
+    const gridWidth = gridStyles.getPropertyValue('width');
+    grid.style.height = gridWidth;
+    const widthPixelless = gridWidth.split('').reverse().slice(2).reverse().join('');
+
+    squares.forEach((square) => {
+        square.style.width = ((widthPixelless - 2) / 20) + "px";
+        square.style.height = ((widthPixelless - 2) / 20) + "px";
+    })
+}
+
+function responsiveLandscape() {
+    grid.style.height = '100%';
+    const gridHeight = gridStyles.getPropertyValue('height');
+    grid.style.width = gridHeight;
+    const heightPixelless = gridHeight.split('').reverse().slice(2).reverse().join('');
+    
+    squares.forEach((square) => {
+        square.style.width = ((heightPixelless - 2) / 20) + "px";
+        square.style.height = ((heightPixelless - 2) / 20) + "px";
+    });
+}
+
+function responsive() {
+    if (window.innerHeight > window.innerWidth) {
+        responsivePortrait();
+    } else if (window.innerHeight < window.innerWidth) {
+        responsiveLandscape();
+    }
+}
+
+responsive();
+window.onresize = responsive;
 
 document.addEventListener("DOMContentLoaded", () => {
     const scoreDisplay = document.querySelector("span");

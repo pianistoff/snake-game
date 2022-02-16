@@ -12,6 +12,7 @@ body {
 
 body {
     display: flex;
+    flex-direction: column;
 }
 
 .grid {
@@ -26,4 +27,10 @@ body {
 
 .apple {
     background-color: red;
+}
+
+@media (orientation: landscape) {
+    body {
+        flex-direction: row;
+    }
 }
