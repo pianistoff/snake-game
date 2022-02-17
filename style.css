@@ -12,6 +12,14 @@ body {
 
 body {
     display: flex;
+    flex-direction: column-reverse;
+}
+
+.aside {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -19,6 +27,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     border: 1px solid black;
+    flex: 0 0 auto;
 }
 
 .snake {
@@ -31,6 +40,6 @@ body {
 
 @media (orientation: landscape) {
     body {
-        flex-direction: row;
+        flex-direction: row-reverse;
     }
 }
