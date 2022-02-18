@@ -40,6 +40,10 @@ window.onresize = responsive;
 document.addEventListener("DOMContentLoaded", () => {
     const scoreDisplay = document.querySelector("span");
     const startBtn = document.querySelector(".start");
+    const upKey = document.querySelector('.up');
+    const rightKey = document.querySelector('.right');
+    const downKey = document.querySelector('.down');
+    const leftKey = document.querySelector('.left');
 
     const width = 20;
     let appleIndex = 0;
@@ -111,30 +115,50 @@ document.addEventListener("DOMContentLoaded", () => {
         squares[appleIndex].classList.add("apple");
     }
 
-    function control(e) {
-        if (e.code === "ArrowRight" || e.keyCode === 39) {
-            if (currentDirection === -1) {
-                return;
-            }
-            direction = 1;
-        } else if (e.code === "ArrowUp" || e.keyCode === 38) {
-            if (currentDirection === width) {
-                return;
-            }
-            direction = -width;
-        } else if (e.code === "ArrowLeft" || e.keyCode === 37) {
-            if (currentDirection === 1) {
-                return;
-            }
-            direction = -1;
-        } else if (e.code === "ArrowDown" || e.keyCode === 40) {
-            if (currentDirection === -width) {
-                return;
-            }
-            direction = width;
+    function up() {
+        if (currentDirection === width) {
+            return;
         }
+        direction = -width;
     }
 
+    function right() {
+        if (currentDirection === -1) {
+            return;
+        }
+        direction = 1;
+    }
+
+    function down() {
+        if (currentDirection === -width) {
+            return;
+        }
+        direction = width;
+    }
+
+    function left() {
+        if (currentDirection === 1) {
+            return;
+        }
+        direction = -1;
+    }
+
+    function control(e) {
+        if (e.code === "ArrowRight" || e.keyCode === 39) {
+            right();
+        } else if (e.code === "ArrowUp" || e.keyCode === 38) {
+            up();
+        } else if (e.code === "ArrowLeft" || e.keyCode === 37) {
+            left();
+        } else if (e.code === "ArrowDown" || e.keyCode === 40) {
+            down();
+        }
+    }
+    
+    upKey.addEventListener('click', up);
+    rightKey.addEventListener('click', right);
+    downKey.addEventListener('click', down);
+    leftKey.addEventListener('click', left);
     document.addEventListener("keyup", control);
     startBtn.addEventListener("click", startGame);
 });
