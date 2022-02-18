@@ -112,22 +112,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function control(e) {
-        if (e.keyCode === 39) {
+        if (e.code === "ArrowRight" || e.keyCode === 39) {
             if (currentDirection === -1) {
                 return;
             }
             direction = 1;
-        } else if (e.keyCode === 38) {
+        } else if (e.code === "ArrowUp" || e.keyCode === 38) {
             if (currentDirection === width) {
                 return;
             }
             direction = -width;
-        } else if (e.keyCode === 37) {
+        } else if (e.code === "ArrowLeft" || e.keyCode === 37) {
             if (currentDirection === 1) {
                 return;
             }
             direction = -1;
-        } else if (e.keyCode === 40) {
+        } else if (e.code === "ArrowDown" || e.keyCode === 40) {
             if (currentDirection === -width) {
                 return;
             }
