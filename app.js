@@ -144,13 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function control(e) {
-        if (e.code === "ArrowRight" || e.keyCode === 39) {
+        if (e.code === "ArrowRight" || e.code === "KeyD" || e.keyCode === 39 || e.keyCode === 68) {
             right();
-        } else if (e.code === "ArrowUp" || e.keyCode === 38) {
+        } else if (e.code === "ArrowUp" || e.code === "KeyW" || e.keyCode === 38 || e.keyCode === 87) {
             up();
-        } else if (e.code === "ArrowLeft" || e.keyCode === 37) {
+        } else if (e.code === "ArrowLeft" || e.code === "KeyA" || e.keyCode === 37 || e.keyCode === 65) {
             left();
-        } else if (e.code === "ArrowDown" || e.keyCode === 40) {
+        } else if (e.code === "ArrowDown" || e.code === "KeyS" || e.keyCode === 40 || e.keyCode === 83) {
             down();
         }
     }
