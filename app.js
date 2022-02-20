@@ -44,6 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const rightKey = document.querySelector('.right');
     const downKey = document.querySelector('.down');
     const leftKey = document.querySelector('.left');
+    const sounds = {
+        swallow: new Howl({
+            src: ['./sounds/swallow.wav', './sounds/swallow.ogg', './sounds/swallow.mp3']
+        })
+    };
 
     const width = 20;
     let appleIndex = 0;
@@ -92,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
             squares[currentSnake[0]].classList.contains("apple")
         ) {
             squares[currentSnake[0]].classList.remove("apple");
+            sounds.swallow.play();
             squares[tail].classList.add("snake");
             currentSnake.push(tail);
             randomApple();
