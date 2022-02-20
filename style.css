@@ -23,6 +23,10 @@ body {
     flex-direction: column;
 }
 
+.aside > * {
+    margin: 5px;
+}
+
 .controls {
     display: grid;
     grid-template-columns: 30px 30px 30px;
@@ -47,6 +51,17 @@ body {
 .left {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+}
+
+.buttons {
+    display: flex;
+    width: 90px;
+    justify-content: space-between;
+}
+
+.buttons svg {
+    width: 30px;
+    height: 30px;
 }
 
 .grid {
