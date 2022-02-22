@@ -21,6 +21,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: black;
 }
 
 .aside > * {
@@ -31,6 +32,12 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-around;
+}
+
+.buttons-top button {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
 }
 
 .buttons-top svg {
