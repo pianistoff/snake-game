@@ -50,6 +50,10 @@ body {
     position: absolute;
 }
 
+.score {
+    color: white;
+}
+
 .controls {
     display: grid;
     grid-template-columns: 45px 45px 45px;
