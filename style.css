@@ -29,8 +29,8 @@ body {
 
 .controls {
     display: grid;
-    grid-template-columns: 30px 30px 30px;
-    grid-template-rows: 30px 30px 30px;
+    grid-template-columns: 60px 60px 60px;
+    grid-template-rows: 60px 60px 60px;
 }
 
 .up {
@@ -55,13 +55,13 @@ body {
 
 .buttons-bottom {
     display: flex;
-    width: 90px;
+    width: 180px;
     justify-content: space-between;
 }
 
 .buttons-bottom svg {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
 }
 
 .checkbox {
