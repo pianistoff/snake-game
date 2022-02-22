@@ -21,7 +21,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: black;
+    background-color: white;
 }
 
 .aside > * {
@@ -35,9 +35,9 @@ body {
 }
 
 .buttons-top button {
-    background-color: black;
-    border: 1px solid white;
-    color: white;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
 }
 
 .buttons-top svg {
@@ -51,7 +51,7 @@ body {
 }
 
 .score {
-    color: white;
+    color: black;
 }
 
 .controls {
