@@ -27,6 +27,22 @@ body {
     margin: 5px;
 }
 
+.buttons-top {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.buttons-top svg {
+    width: 30px;
+    height: 30px;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
 .controls {
     display: grid;
     grid-template-columns: 60px 60px 60px;
@@ -51,22 +67,6 @@ body {
 .left {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-}
-
-.buttons-bottom {
-    display: flex;
-    width: 180px;
-    justify-content: space-between;
-}
-
-.buttons-bottom svg {
-    width: 60px;
-    height: 60px;
-}
-
-.checkbox {
-    opacity: 0;
-    position: absolute;
 }
 
 .grid {
