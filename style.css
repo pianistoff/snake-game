@@ -53,15 +53,20 @@ body {
     grid-row: 2 / 3;
 }
 
-.buttons {
+.buttons-bottom {
     display: flex;
     width: 90px;
     justify-content: space-between;
 }
 
-.buttons svg {
+.buttons-bottom svg {
     width: 30px;
     height: 30px;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
 }
 
 .grid {
