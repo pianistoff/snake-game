@@ -95,6 +95,37 @@ body {
     background-color: red;
 }
 
+.modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid black;
+    width: 200px;
+    max-width: 100%;
+    pointer-events: none;
+    display: none;
+}
+
+.modal.show {
+    display: block;
+    pointer-events: auto;
+}
+
+.modal h1,
+.modal p {
+    text-align: center;
+}
+
+.modal button {
+    display: block;
+    width: min-content;
+    margin: 16px auto;
+    background-color: white;
+    border: 1px solid black;
+}
+
 @media (orientation: landscape) {
     body {
         flex-direction: row-reverse;
