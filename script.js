@@ -69,7 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 './sounds/game-over.wav',
                 './sounds/game-over.webm',
                 './sounds/game-over.mp3'
-            ]
+            ],
+            loop: false,
+            onend() {
+                alert('Game over!');
+            }
         })
     };
 
