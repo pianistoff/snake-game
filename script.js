@@ -1,58 +1,69 @@
-const squares = document.querySelectorAll(".grid div");
-const grid = document.querySelector(".grid");
-const gridStyles = window.getComputedStyle(grid);
-
-function responsivePortrait() {
-    grid.style.width = "100%";
-    const gridWidth = gridStyles.getPropertyValue("width");
-    grid.style.height = gridWidth;
-    const widthPixelless = gridWidth
-        .split("")
-        .reverse()
-        .slice(2)
-        .reverse()
-        .join("");
-
-    squares.forEach((square) => {
-        square.style.width = (widthPixelless - 2) / 20 + "px";
-        square.style.height = (widthPixelless - 2) / 20 + "px";
-    });
-}
-
-function responsiveLandscape() {
-    grid.style.height = "100%";
-    const gridHeight = gridStyles.getPropertyValue("height");
-    grid.style.width = gridHeight;
-    const heightPixelless = gridHeight
-        .split("")
-        .reverse()
-        .slice(2)
-        .reverse()
-        .join("");
-
-    squares.forEach((square) => {
-        square.style.width = (heightPixelless - 2) / 20 + "px";
-        square.style.height = (heightPixelless - 2) / 20 + "px";
-    });
-}
-
-function responsive() {
-    if (window.innerHeight > window.innerWidth) {
-        responsivePortrait();
-    } else if (window.innerHeight < window.innerWidth) {
-        responsiveLandscape();
-    }
-}
-
-responsive();
-window.onresize = responsive;
-
 document.addEventListener("DOMContentLoaded", () => {
+    const squares = document.querySelectorAll(".grid div");
+    const grid = document.querySelector(".grid");
+    const gridStyles = window.getComputedStyle(grid);
+    const layoutBtn = document.querySelector(".checkbox-layout");
+
+    function responsivePortrait() {
+        layoutBtn.parentElement
+            .querySelector("path")
+            .setAttribute(
+                "d",
+                "M240.277 177.383C250.027 168.406 250.62 153.203 241.62 143.445L145.624 39.367C136.562 29.547 119.437 29.547 110.374 39.367L14.378 143.445C5.378 153.203 5.972 168.406 15.722 177.383C20.345 181.664 26.189 183.758 32.001 183.758C38.47 183.758 44.907 181.164 49.626 176.039L103.999 117.086V455.977C103.999 469.242 114.749 480 127.999 480S151.999 469.242 151.999 455.977V117.086L206.372 176.039C215.31 185.797 230.497 186.453 240.277 177.383ZM432.277 334.617C422.497 325.547 407.31 326.203 398.372 335.961L343.999 394.914V56.023C343.999 42.758 333.249 32 319.999 32S295.999 42.758 295.999 56.023V394.914L241.626 335.961C236.907 330.836 230.47 328.242 224.001 328.242C218.189 328.242 212.345 330.336 207.722 334.617C197.972 343.594 197.378 358.797 206.378 368.555L302.374 472.633C311.437 482.453 328.562 482.453 337.624 472.633L433.62 368.555C442.62 358.797 442.027 343.594 432.277 334.617Z"
+            );
+        grid.style.width = "100%";
+        const gridWidth = gridStyles.getPropertyValue("width");
+        grid.style.height = gridWidth;
+        const widthPixelless = gridWidth
+            .split("")
+            .reverse()
+            .slice(2)
+            .reverse()
+            .join("");
+
+        squares.forEach((square) => {
+            square.style.width = (widthPixelless - 2) / 20 + "px";
+            square.style.height = (widthPixelless - 2) / 20 + "px";
+        });
+    }
+
+    function responsiveLandscape() {
+        layoutBtn.parentElement
+            .querySelector("path")
+            .setAttribute(
+                "d",
+                "M488 344H79.236L153.531 264.375C162.594 254.688 162.062 239.5 152.375 230.469C142.719 221.375 127.5 221.906 118.469 231.625L6.469 351.625C-2.156 360.844 -2.156 375.156 6.469 384.375L118.469 504.375C123.188 509.438 129.594 512 136 512C141.875 512 147.75 509.875 152.375 505.531C162.063 496.5 162.594 481.313 153.531 471.625L79.236 392H488C501.25 392 512 381.25 512 368S501.25 344 488 344ZM24 168H432.764L358.469 247.625C349.406 257.312 349.937 272.5 359.625 281.531C369.281 290.625 384.5 290.094 393.531 280.375L505.531 160.375C514.156 151.156 514.156 136.844 505.531 127.625L393.531 7.625C388.812 2.562 382.406 0 376 0C370.125 0 364.25 2.125 359.625 6.469C349.937 15.5 349.406 30.687 358.469 40.375L432.764 120H24C10.75 120 0 130.75 0 144S10.75 168 24 168Z"
+            );
+        grid.style.height = "100%";
+        const gridHeight = gridStyles.getPropertyValue("height");
+        grid.style.width = gridHeight;
+        const heightPixelless = gridHeight
+            .split("")
+            .reverse()
+            .slice(2)
+            .reverse()
+            .join("");
+
+        squares.forEach((square) => {
+            square.style.width = (heightPixelless - 2) / 20 + "px";
+            square.style.height = (heightPixelless - 2) / 20 + "px";
+        });
+    }
+
+    function responsive() {
+        if (window.innerHeight > window.innerWidth) {
+            responsivePortrait();
+        } else if (window.innerHeight < window.innerWidth) {
+            responsiveLandscape();
+        }
+    }
+
+    responsive();
+    window.onresize = responsive;
     const scoreDisplay = document.querySelector("span");
     const finalScore = document.querySelector("#final_score");
     const startBtn = document.querySelector(".start");
     const volumeBtn = document.querySelector(".checkbox-volume");
-    const layoutBtn = document.querySelector(".layout");
     const closeBtn = document.querySelector(".close");
     const upKey = document.querySelector(".up");
     const rightKey = document.querySelector(".right");
