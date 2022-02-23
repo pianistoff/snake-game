@@ -57,13 +57,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const downKey = document.querySelector(".down");
     const leftKey = document.querySelector(".left");
     const sounds = {
-        swallow: new Howl({
+        beep: new Howl({
             src: [
-                "./sounds/swallow.wav",
-                "./sounds/swallow.ogg",
-                "./sounds/swallow.mp3",
-            ],
+                "./sounds/beep.wav",
+                "./sounds/beep.webm",
+                "./sounds/beep.mp3"
+            ]
         }),
+        gameOver: new Howl({
+            src: [
+                './sounds/game-over.wav',
+                './sounds/game-over.webm',
+                './sounds/game-over.mp3'
+            ]
+        })
     };
 
     const width = 20;
@@ -101,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
             (currentSnake[0] - width < 0 && direction === -width) ||
             squares[currentSnake[0] + direction].classList.contains("snake")
         ) {
+            sounds.gameOver.play();
             return clearInterval(interval);
         }
 
@@ -113,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
             squares[currentSnake[0]].classList.contains("apple")
         ) {
             squares[currentSnake[0]].classList.remove("apple");
-            sounds.swallow.play();
+            sounds.beep.play();
             squares[tail].classList.add("snake");
             currentSnake.push(tail);
             randomApple();
