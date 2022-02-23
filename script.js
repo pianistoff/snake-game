@@ -217,12 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startBtn.addEventListener("click", startGame);
     volumeBtn.addEventListener("change", function () {
         if (this.checked) {
-            /*
             Howler.mute(true);
-            this.parentElement
-                .querySelector("svg")
-                .setAttribute("viewBox", "0 0 320 512");
-            */
             this.parentElement
                 .querySelector("path")
                 .setAttribute(
@@ -231,9 +226,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
         } else {
             Howler.mute(false);
-            this.parentElement
-                .querySelector("svg")
-                .setAttribute("viewBox", "0 0 640 512");
             this.parentElement
                 .querySelector("path")
                 .setAttribute(
