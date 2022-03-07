@@ -251,22 +251,10 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.classList.remove("show");
     });
     layoutBtn.addEventListener("change", function () {
-        const queryLandscape = window.matchMedia("(orientation: landscape)");
-        const queryPortrait = window.matchMedia("(orientation: portrait)");
-        if (this.checked) {
-            if (queryLandscape.matches) {
-                document.querySelector("body").style.flexDirection = "row";
-            } else if (queryPortrait.matches) {
-                document.querySelector("body").style.flexDirection = "column";
-            }
+        if(this.checked) {
+            document.querySelector('body').classList.add('opposite');
         } else {
-            if (queryLandscape.matches) {
-                document.querySelector("body").style.flexDirection =
-                    "row-reverse";
-            } else if (queryPortrait.matches) {
-                document.querySelector("body").style.flexDirection =
-                    "column-reverse";
-            }
+            document.querySelector('body').classList.remove('opposite');
         }
     });
 });

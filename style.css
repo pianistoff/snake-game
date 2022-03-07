@@ -15,6 +15,10 @@ body {
     flex-direction: column-reverse;
 }
 
+body.opposite {
+    flex-direction: column;
+}
+
 .aside {
     flex: 1 1 auto;
     display: flex;
@@ -129,5 +133,8 @@ body {
 @media (orientation: landscape) {
     body {
         flex-direction: row-reverse;
+    }
+    body.opposite {
+        flex-direction: row;
     }
 }
