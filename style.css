@@ -15,10 +15,6 @@ body {
     flex-direction: column-reverse;
 }
 
-body.opposite {
-    flex-direction: column;
-}
-
 .aside {
     flex: 1 1 auto;
     display: flex;
@@ -84,6 +80,11 @@ body.opposite {
     grid-row: 2 / 3;
 }
 
+.layout {
+    display: none;
+    pointer-events: none;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;
@@ -136,5 +137,9 @@ body.opposite {
     }
     body.opposite {
         flex-direction: row;
+    }
+    .layout {
+        display: block;
+        pointer-events: auto;
     }
 }
