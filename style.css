@@ -15,6 +15,10 @@ body {
     flex-direction: column-reverse;
 }
 
+body.opposite {
+    flex-direction: column;
+}
+
 .aside {
     flex: 1 1 auto;
     display: flex;
@@ -80,14 +84,10 @@ body {
     grid-row: 2 / 3;
 }
 
-.layout {
-    display: none;
-    pointer-events: none;
-}
-
 .grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     border: 1px solid black;
     flex: 0 0 auto;
 }
@@ -137,9 +137,5 @@ body {
     }
     body.opposite {
         flex-direction: row;
-    }
-    .layout {
-        display: block;
-        pointer-events: auto;
     }
 }
