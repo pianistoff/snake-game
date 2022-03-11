@@ -14,6 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
         grid.style.width = "100%";
         const gridWidth = gridStyles.getPropertyValue("width");
         grid.style.height = gridWidth;
+        if (
+            Number(gridWidth.split("").reverse().slice(2).reverse().join("")) + 217 >
+            document.querySelector("html").clientHeight
+        ) {
+            grid.style.width =
+                document.querySelector("html").clientHeight - 217 + "px";
+            grid.style.height =
+                document.querySelector("html").clientHeight - 217 + "px";
+        }
     }
 
     function responsiveLandscape() {
@@ -29,9 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function responsive() {
-        if (window.innerHeight > window.innerWidth) {
+        if (window.matchMedia("(orientation: portrait)").matches) {
             responsivePortrait();
-        } else if (window.innerHeight < window.innerWidth) {
+        } else if (window.matchMedia("(orientation: landscape)").matches) {
             responsiveLandscape();
         }
     }
@@ -229,10 +238,10 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.classList.remove("show");
     });
     layoutBtn.addEventListener("change", function () {
-        if(this.checked) {
-            document.querySelector('body').classList.add('opposite');
+        if (this.checked) {
+            document.querySelector("body").classList.add("opposite");
         } else {
-            document.querySelector('body').classList.remove('opposite');
+            document.querySelector("body").classList.remove("opposite");
         }
     });
 });
