@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const gridWidth = gridStyles.getPropertyValue("width");
         grid.style.height = gridWidth;
         if (
-            Number(gridWidth.split("").reverse().slice(2).reverse().join("")) + 217 >
+            Number(gridWidth.split("").reverse().slice(2).reverse().join("")) +
+                217 >
             document.querySelector("html").clientHeight
         ) {
             grid.style.width =
@@ -35,6 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
         grid.style.height = "100%";
         const gridHeight = gridStyles.getPropertyValue("height");
         grid.style.width = gridHeight;
+        if (
+            Number(gridHeight.split("").reverse().slice(2).reverse().join("")) +
+                158.828 >
+            document.querySelector("html").clientWidth
+        ) {
+            grid.style.width =
+                document.querySelector("html").clientWidth - 158.828 + "px";
+            grid.style.height =
+                document.querySelector("html").clientWidth - 158.828 + "px";
+        }
     }
 
     function responsive() {
